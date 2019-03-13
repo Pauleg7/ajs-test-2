@@ -1,7 +1,19 @@
-import sum from '../src/js/basic';
+import getSortHeroes from '../src/js/app';
 
-test('should sum', () => {
-  const result = sum([1, 2, 3]);
+test('should sort heroes', () => {
+  const heroes = [
+    {name: 'мечник', health: 10},
+    {name: 'маг', health: 100},
+    {name: 'лучник', health: 80}
+  ];
 
-  expect(result).toBe(6);
+  const expected =  [
+    {name: 'маг', health: 100},
+    {name: 'лучник', health: 80},
+    {name: 'мечник', health: 10}
+  ];
+
+  const received = getSortHeroes(heroes);
+
+  expect(received).toEqual(expected);
 });
